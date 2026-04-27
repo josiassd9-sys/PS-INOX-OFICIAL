@@ -88,7 +88,7 @@ function TableComponent() {
   });
 
   return (
-    <div className="mx-auto p-4">
+    <div className="w-full p-4 overflow-x-auto">
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Tabela de Perfis W</CardTitle>
