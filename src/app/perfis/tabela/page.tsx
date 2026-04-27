@@ -116,7 +116,7 @@ function TableComponent() {
 
         <CardContent className="p-0">
           <div className="border border-border rounded-md overflow-x-auto overflow-y-auto max-h-[580px] bg-card">
-            <table className="w-full table-auto min-w-max text-xs border-collapse">
+            <table className="w-full table-auto text-xs border-collapse">
               <thead className="sticky top-0 z-50 bg-muted">
                 {table.getHeaderGroups().map((headerGroup: any) => (
                   <tr key={headerGroup.id}>
