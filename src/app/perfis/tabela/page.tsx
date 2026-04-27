@@ -88,7 +88,7 @@ function TableComponent() {
   });
 
   return (
-    <div className="w-full max-w-screen-md mx-auto p-4">
+    <div className="mx-auto p-4">
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Tabela de Perfis W</CardTitle>
@@ -116,7 +116,7 @@ function TableComponent() {
 
         <CardContent className="p-0">
           <div className="border border-border rounded-md overflow-x-auto overflow-y-auto max-h-[580px] bg-card">
-            <table className="w-full table-auto text-xs border-collapse">
+            <table className="table-auto text-xs border-collapse">
               <thead className="sticky top-0 z-50 bg-muted">
                 {table.getHeaderGroups().map((headerGroup: any) => (
                   <tr key={headerGroup.id}>
