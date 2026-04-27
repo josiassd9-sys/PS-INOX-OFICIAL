@@ -1,3 +1,17 @@
+/* Força visibilidade das barras de rolagem em WebView Android */
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b0b0b0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
 
 @tailwind base;
 @tailwind components;
