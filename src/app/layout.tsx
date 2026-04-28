@@ -41,7 +41,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className="font-body antialiased">
+      <body className="font-body antialiased overflow-x-hidden">
         <ThemeInitializer />
         <SidebarProvider>
           {children}

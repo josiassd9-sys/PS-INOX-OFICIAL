@@ -417,7 +417,8 @@ function DashboardComponent({ initialCategoryId, children }: { initialCategoryId
     selectedCategoryId !== 'balanca' &&
     selectedCategoryId !== 'lista-materiais' &&
     selectedCategoryId !== 'lista-sucatas' &&
-    !selectedCategoryId?.startsWith('perfis/calculadora');
+    !selectedCategoryId?.startsWith('perfis/calculadora') &&
+    selectedCategoryId !== 'perfis/tabela-w';
 
   const hasQuickActions =
     (!!showPriceControls && !!currentPriceParams) ||
@@ -661,7 +662,13 @@ function DashboardComponent({ initialCategoryId, children }: { initialCategoryId
             </header>
             
             <div className="flex-1 flex flex-col overflow-hidden">
-              <div className={cn("p-1 flex-1 overflow-y-auto", (selectedCategoryId === 'tabela-sucata' || selectedCategoryId === 'conexoes') && "p-0 md:p-0", (selectedCategoryId?.startsWith('perfis/calculadora') || selectedCategoryId === 'perfis/tabela-w') && 'p-0 overflow-x-hidden')}>
+              <div className={cn(
+                "p-1 flex-1",
+                (selectedCategoryId === 'tabela-sucata' || selectedCategoryId === 'conexoes') && "p-0 md:p-0",
+                (selectedCategoryId?.startsWith('perfis/calculadora') || selectedCategoryId === 'perfis/tabela-w')
+                  ? 'p-0 overflow-x-hidden overflow-y-visible'
+                  : 'overflow-y-auto'
+              )}>
                  <PageTransition variant={selectedCategoryId === 'perfis/tabela-w' ? 'fade' : selectedCategoryId?.startsWith('perfis/') ? 'scale' : searchTerm ? 'fade' : 'slide'}>
                    {renderContent()}
                  </PageTransition>
