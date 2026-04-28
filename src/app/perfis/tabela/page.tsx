@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -6,7 +5,6 @@ import {
   ColumnDef,
   useReactTable,
   getCoreRowModel,
-  getFilteredRowModel,
   flexRender,
 } from "@tanstack/react-table";
 import {
@@ -17,13 +15,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { perfisData } from "@/lib/data/index";
 import { Dashboard } from "@/components/dashboard";
-import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
-import { Label } from "@/components/ui/label";
-
 
 function TableComponent() {
   const [filters, setFilters] = React.useState({
@@ -68,7 +64,7 @@ function TableComponent() {
 
   return (
     <div className="flex flex-col h-screen overflow-hidden p-1">
-      {/* ==================== CARD SUPERIOR ==================== */}
+      {/* Card Superior */}
       <Card className="flex-shrink-0 mb-3">
         <CardHeader className="pb-4">
           <CardTitle className="text-2xl">Tabela de Perfis W</CardTitle>
@@ -118,12 +114,55 @@ function TableComponent() {
         </CardHeader>
       </Card>
 
-      {/* ==================== SUB-CONTAINER COM ROLAGEM ==================== */}
+      {/* Sub-Container com Rolagem Horizontal e Vertical */}
       <div className="flex-1 min-h-0 border rounded-lg bg-background overflow-hidden flex flex-col">
-        {/* Este é o sub-container que permite rolagem horizontal e vertical */}
         <div className="flex-1 min-h-0 overflow-auto">
-          <div className="inline-block min-w-full">   {/* ← Importante para rolagem horizontal */}
-            {/* Tabela será adicionada aqui futuramente */}
+          <div className="inline-block min-w-full"> {/* Essencial para scroll horizontal */}
+            <Table>
+              <TableHeader className="sticky top-0 bg-background z-10">
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <TableRow key={headerGroup.id}>
+                    {headerGroup.headers.map((header) => (
+                      <TableHead 
+                        key={header.id}
+                        className="font-semibold whitespace-nowrap px-4 py-3"
+                      >
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                      </TableHead>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableHeader>
+
+              <TableBody>
+                {table.getRowModel().rows.length > 0 ? (
+                  table.getRowModel().rows.map((row) => (
+                    <TableRow key={row.id}>
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell 
+                          key={cell.id}
+                          className="px-4 py-3 whitespace-nowrap"
+                        >
+                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell 
+                      colSpan={columns.length} 
+                      className="h-32 text-center text-muted-foreground"
+                    >
+                      Nenhum perfil encontrado com os filtros aplicados.
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>
@@ -138,4 +177,3 @@ export default function Page() {
     </Dashboard>
   );
 }
-
