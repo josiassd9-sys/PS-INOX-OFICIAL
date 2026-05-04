@@ -7,15 +7,30 @@ import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
+import com.psinox.datastore.GaugeDataStore
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.psinox.data.gaugeInfo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+@Composable
 fun GaugeScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+    val dataStore = remember { GaugeDataStore(context) }
+    val scope = rememberCoroutineScope()
     var carga by remember { mutableStateOf("") }
     var uso by remember { mutableStateOf("Piso") }
+
+    // Carregar valores salvos ao abrir a tela
+    LaunchedEffect(Unit) {
+        dataStore.gaugeData.collect { state ->
+            if (state.carga > 0f) carga = state.carga.toString()
+            if (state.uso.isNotBlank()) uso = state.uso
+        }
+    }
     var resultado by remember { mutableStateOf("") }
     var erro by remember { mutableStateOf("") }
 
@@ -76,6 +91,13 @@ fun GaugeScreen(onBack: () -> Unit) {
                     resultado += gaugesCompat.joinToString(separator = "\n") { "- Gauge ${it.id}: ${it.valor} mm" }
                 } else {
                     resultado += "\nNenhum gauge disponível atende à espessura mínima."
+                }
+                // Salvar dados no DataStore
+                scope.launch {
+                    dataStore.salvarGauge(
+                        carga = cargaNum.toFloat(),
+                        uso = uso
+                    )
                 }
             }, modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)) {
                 Text("Calcular Gauge")

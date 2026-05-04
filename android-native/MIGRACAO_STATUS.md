@@ -1,3 +1,5 @@
+**04/05/2026**: Persistência DataStore replicada para Gauge:
+	- Dados salvos/restaurados automaticamente na tela Gauge
 **04/05/2026**: Persistência DataStore replicada para VigaSecundaria:
 	- Dados salvos/restaurados automaticamente na tela VigaSecundaria
 **04/05/2026**: Persistência DataStore replicada para ArmaduraSapata:
