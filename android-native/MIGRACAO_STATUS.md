@@ -1,3 +1,7 @@
+**04/05/2026**: MaterialDetailScreen migrada:
+	- Exibe detalhes do material selecionado (nome, tipo, ID)
+	- Pronta para incrementos de propriedades técnicas, estoque ou integração com orçamentos
+	Próximos passos: ampliar informações exibidas e integração com fluxo de orçamento
 **04/05/2026**: MateriaisScreen migrada:
 	- Lista de materiais cadastrados exibida
 	- Pronta para incrementos de filtro, busca ou integração com estoque
