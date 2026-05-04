@@ -5,12 +5,19 @@ import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
+import com.psinox.datastore.SapataDataStore
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+@Composable
 fun SapataScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+    val dataStore = remember { SapataDataStore(context) }
+    val scope = rememberCoroutineScope()
     val soilTypes = listOf(
         "Rocha Sã" to 10.0,
         "Argila Dura" to 4.0,
@@ -20,6 +27,14 @@ fun SapataScreen(onBack: () -> Unit) {
     )
     var carga by remember { mutableStateOf("") }
     var soloSelecionado by remember { mutableStateOf(soilTypes.first().first) }
+
+    // Carregar valores salvos ao abrir a tela
+    LaunchedEffect(Unit) {
+        dataStore.sapataData.collect { state ->
+            if (state.carga > 0f) carga = state.carga.toString()
+            if (state.fck > 0f) soloSelecionado = soilTypes.getOrNull(state.fck.toInt())?.first ?: soilTypes.first().first
+        }
+    }
     var resultado by remember { mutableStateOf("") }
     var erro by remember { mutableStateOf("") }
 
@@ -78,6 +93,14 @@ fun SapataScreen(onBack: () -> Unit) {
                 val ladoM = kotlin.math.sqrt(areaMinimaM2)
                 val alturaCm = maxOf(30.0, ((ladoM * 100) / 3 / 5).let { kotlin.math.ceil(it) * 5 })
                 resultado = "Carga: $cargaKgf kgf\nSolo: ${solo.first} (${pressaoSolo} kgf/cm²)\n\nÁrea mínima: %.2f m²\nLado da sapata: %.2f m\nAltura recomendada: %.0f cm\n\nEste é um pré-dimensionamento. Consulte um engenheiro para o projeto executivo final.".format(areaMinimaM2, ladoM, alturaCm)
+                // Salvar dados no DataStore
+                scope.launch {
+                    dataStore.salvarSapata(
+                        carga = cargaKgf.toFloat(),
+                        fck = soilTypes.indexOfFirst { it.first == soloSelecionado }.toFloat(),
+                        coefSeg = 0f // Não utilizado, mas mantido para compatibilidade
+                    )
+                }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
