@@ -1,3 +1,8 @@
+**04/05/2026**: GeometriaScreen já migrada com lógica realista:
+	- Analisa vãos, balanços e relação de lados
+	- Fornece alertas, insights e recomendações estruturais
+	- Pronta para incrementos visuais ou integração com outras telas
+	Próximos passos: integração com fluxo de cálculo de laje e visualização gráfica
 **04/05/2026**: Aprimorada GaugeScreen com lógica de cálculo:
 	- Permite entrada de carga (kgf/m²) e tipo de uso (piso, cobertura, divisória)
 	- Calcula espessura mínima recomendada conforme uso e carga
