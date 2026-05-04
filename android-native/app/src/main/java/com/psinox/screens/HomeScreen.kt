@@ -16,7 +16,10 @@ fun HomeScreen(
     onNavigateToAISettings: () -> Unit,
     onNavigateToSobre: () -> Unit,
     onNavigateToGauge: () -> Unit,
-    onNavigateToConfiguracoes: () -> Unit
+    onNavigateToConfiguracoes: () -> Unit,
+    onNavigateToTubosODSchedule: () -> Unit,
+    onNavigateToMetalons: () -> Unit,
+    onNavigateToChapas: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -40,6 +43,15 @@ fun HomeScreen(
             }
         }
         Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                        Button(onClick = onNavigateToTubosODSchedule, modifier = Modifier.fillMaxWidth()) {
+                            Text("Tubos OD & Schedule")
+                        }
+                        Button(onClick = onNavigateToMetalons, modifier = Modifier.fillMaxWidth()) {
+                            Text("Metalons")
+                        }
+                        Button(onClick = onNavigateToChapas, modifier = Modifier.fillMaxWidth()) {
+                            Text("Chapas")
+                        }
             Button(onClick = onNavigateToPerfis, modifier = Modifier.fillMaxWidth()) {
                 Text("Ver Perfis")
             }

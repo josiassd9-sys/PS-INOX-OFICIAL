@@ -41,15 +41,29 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 Surface(color = MaterialTheme.colorScheme.background) {
                     NavHost(navController = navController, startDestination = "home") {
-                        composable("home") { HomeScreen(
-                            onNavigateToPerfis = { navController.navigate("perfis") },
-                            onNavigateToMateriais = { navController.navigate("materiais") },
-                            onNavigateToDashboard = { navController.navigate("dashboard") },
-                            onNavigateToAISettings = { navController.navigate("ai_settings") },
-                            onNavigateToSobre = { navController.navigate("sobre") },
-                            onNavigateToGauge = { navController.navigate("gauge") },
-                            onNavigateToConfiguracoes = { navController.navigate("configuracoes") }
-                        ) }
+                        composable("home") {
+                            HomeScreen(
+                                onNavigateToPerfis = { navController.navigate("perfis") },
+                                onNavigateToMateriais = { navController.navigate("materiais") },
+                                onNavigateToDashboard = { navController.navigate("dashboard") },
+                                onNavigateToAISettings = { navController.navigate("ai_settings") },
+                                onNavigateToSobre = { navController.navigate("sobre") },
+                                onNavigateToGauge = { navController.navigate("gauge") },
+                                onNavigateToConfiguracoes = { navController.navigate("configuracoes") },
+                                onNavigateToTubosODSchedule = { navController.navigate("tubos_od_schedule") },
+                                onNavigateToMetalons = { navController.navigate("metalons") },
+                                onNavigateToChapas = { navController.navigate("chapas") }
+                            )
+                        }
+                                                                        composable("tubos_od_schedule") {
+                                                                            com.psinox.screens.TubosODScheduleScreen(onBack = { navController.popBackStack() })
+                                                                        }
+                                                                        composable("metalons") {
+                                                                            com.psinox.screens.MetalonsScreen(onBack = { navController.popBackStack() })
+                                                                        }
+                                                                        composable("chapas") {
+                                                                            com.psinox.screens.ChapasScreen(onBack = { navController.popBackStack() })
+                                                                        }
                                                 composable("configuracoes") {
                                                     ConfiguracoesScreen(onBack = { navController.popBackStack() })
                                                 }

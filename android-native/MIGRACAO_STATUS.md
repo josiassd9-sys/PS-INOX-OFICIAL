@@ -1,3 +1,6 @@
+**04/05/2026**: Criados testes de integração para as telas de tabelas de materiais (Tubos OD & Schedule, Metalons, Chapas).
+**04/05/2026**: Integradas as telas de tabelas de materiais (Tubos OD & Schedule, Metalons, Chapas) ao menu principal e navegação do app.
+**04/05/2026**: Adicionadas telas de tabelas de materiais: Tubos OD & Schedule, Metalons e Chapas (com navegação e visualização de dados).
 **04/05/2026**: Criado teste de integração para a tela de Materiais (aço inox), validando exibição e clique.
 **04/05/2026**: Criado teste de integração para o Dashboard recebendo dados das calculadoras principais.
 **04/05/2026**: Criado teste de integração completo para persistência e navegação em todas as telas/calculadoras principais.
