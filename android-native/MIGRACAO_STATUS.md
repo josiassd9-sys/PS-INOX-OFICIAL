@@ -1,3 +1,22 @@
+
+**04/05/2026**: Implementada lógica realista na tela VigaSecundariaScreen:
+	- Validação do perfil IPE informado, carga e espaçamento
+	- Seleção do tipo de aço (Aço 235 ou 355)
+	- Cálculo do momento solicitante (Msd) e Wx mínimo requerido
+	- Feedback claro ao usuário e orientação para consulta ao Wx do perfil IPE
+	Próximos passos: validar resultados com casos reais do app híbrido e ajustar limites conforme tabelas de fabricantes
+
+**04/05/2026**: Implementada lógica realista na tela LajeScreen:
+	- Validação dos campos (chapa, espessura, carga)
+	- Cálculo e comparação da carga com limites típicos das chapas MD40 e MD75
+	- Feedback claro ao usuário e orientação para consulta à tabela do fabricante
+	Próximos passos: validar resultados com casos reais do app híbrido e ajustar limites conforme tabelas de fabricantes parceiros.
+**04/05/2026**: Implementada lógica realista na tela ArmaduraSapataScreen:
+	- Validação dos campos (fck, aço, diâmetro)
+	- Cálculo da área mínima de aço conforme NBR 6118
+	- Cálculo da quantidade de barras e espaçamento sugerido
+	- Feedback claro ao usuário e mensagem de consulta ao engenheiro estrutural
+	Próximos passos: validar resultados com casos reais do app híbrido e aprimorar interface conforme feedback de uso.
 **04/05/2026**: Lógica de cálculo realista implementada nas telas/calculadoras:
 	- VigaPrincipalScreen.kt (cálculo de Msd, Wx requerido, seleção de aço, validação)
 	- PilarScreen.kt (tensão atuante/admissível, seleção de aço, validação)

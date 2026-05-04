@@ -15,6 +15,7 @@ fun LajeScreen(onBack: () -> Unit) {
     var espessuraConcreto by remember { mutableStateOf("") }
     var carga by remember { mutableStateOf("") }
     var resultado by remember { mutableStateOf("") }
+    var erro by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = {
@@ -57,11 +58,48 @@ fun LajeScreen(onBack: () -> Unit) {
             )
             Button(
                 onClick = {
-                    resultado = "Chapa: $chapa\nEspessura: $espessuraConcreto cm\nCarga: $carga kgf/m²\n\n(Análise simulada: verifique se a chapa suporta o vão e a carga. Consulte a tabela do fabricante para limites de vão e carga admissível.)"
+                    erro = ""
+                    resultado = ""
+                    // Validação dos campos
+                    val chapaId = chapa.trim().uppercase()
+                    val espConcreto = espessuraConcreto.replace(",", ".").toDoubleOrNull()
+                    val cargaTotal = carga.replace(",", ".").toDoubleOrNull()
+                    if (chapaId.isBlank()) {
+                        erro = "Informe a chapa de Steel Deck (ex: MD40, MD75)."
+                        return@Button
+                    }
+                    if (espConcreto == null || espConcreto < 5.0) {
+                        erro = "Informe uma espessura de concreto válida (mínimo 5 cm)."
+                        return@Button
+                    }
+                    if (cargaTotal == null || cargaTotal < 100) {
+                        erro = "Informe uma carga total válida (mínimo 100 kgf/m²)."
+                        return@Button
+                    }
+                    // Limites típicos de carga admissível (exemplo, pode ser ajustado conforme fabricante)
+                    val limites = mapOf(
+                        "MD40" to 1200.0,
+                        "MD75" to 1800.0
+                    )
+                    val cargaLimite = limites[chapaId] ?: 0.0
+                    if (cargaLimite == 0.0) {
+                        erro = "Chapa não reconhecida. Use MD40 ou MD75 (ou ajuste os limites conforme fabricante)."
+                        return@Button
+                    }
+                    val situacao = if (cargaTotal <= cargaLimite) {
+                        "OK: Carga dentro do limite da chapa ($cargaLimite kgf/m²)."
+                    } else {
+                        "ATENÇÃO: Carga excede o limite da chapa ($cargaLimite kgf/m²)! Escolha chapa superior ou reduza a carga."
+                    }
+                    resultado = "Chapa: $chapaId\nEspessura: $espConcreto cm\nCarga: $cargaTotal kgf/m²\n\n$situacao\n\n(Consulte a tabela do fabricante para limites detalhados de vão e carga admissível.)"
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Calcular Laje")
+            }
+            if (erro.isNotBlank()) {
+                Spacer(Modifier.height(8.dp))
+                Text(erro, color = MaterialTheme.colorScheme.error)
             }
             if (resultado.isNotBlank()) {
                 Spacer(Modifier.height(16.dp))

@@ -65,8 +65,40 @@ fun ArmaduraSapataScreen(onBack: () -> Unit) {
                 onClick = {
                     isCalculating = true
                     error = null
-                    // Simulação de cálculo (substituir por lógica real depois)
-                    result = "Área de aço sugerida: 4,52 cm²/m\nEspaçamento: c/12,5 cm\nTotal de barras: 8 por direção\n\n(Análise: solução dentro dos limites normativos. Consulte engenheiro estrutural para detalhamento final.)"
+                    result = null
+                    // Validação dos campos
+                    val fck = concreteStrength.replace(",", ".").toDoubleOrNull()
+                    val fyk = steelStrength.replace(",", ".").toDoubleOrNull()
+                    val diam = barDiameter.replace(",", ".").toDoubleOrNull()
+                    if (fck == null || fck < 15) {
+                        error = "Informe um fck válido (mínimo 15 MPa)."
+                        isCalculating = false
+                        return@Button
+                    }
+                    if (fyk == null || (fyk != 50.0 && fyk != 60.0)) {
+                        error = "Informe o aço (50 ou 60)."
+                        isCalculating = false
+                        return@Button
+                    }
+                    if (diam == null || diam < 5.0) {
+                        error = "Informe um diâmetro de barra válido (mínimo 5 mm)."
+                        isCalculating = false
+                        return@Button
+                    }
+                    // Cálculo normativo (exemplo simplificado):
+                    // Área mínima de aço: As,min = 0,15% da área da seção (NBR 6118)
+                    // Para sapata de 1m de largura (por metro):
+                    val largura = 100.0 // cm (1m)
+                    val altura = 30.0 // cm (exemplo, pode ser campo futuro)
+                    val areaSecao = largura * altura // cm²
+                    val asMin = areaSecao * 0.0015 // cm²
+                    // Área de uma barra: As_barra = pi * d² / 4 (mm² → cm²)
+                    val asBarra = Math.PI * Math.pow(diam, 2.0) / 4.0 / 100.0
+                    val nBarras = kotlin.math.ceil(asMin / asBarra).toInt().coerceAtLeast(2)
+                    // Espaçamento sugerido (máx. 20cm, min. 10cm)
+                    val espacamento = (largura / nBarras).coerceIn(10.0, 20.0)
+                    result = "Área de aço mínima: %.2f cm²/m\nDiâmetro da barra: %.1f mm\nQuantidade de barras: %d por metro\nEspaçamento sugerido: c/%.1f cm\n\n(Consulte engenheiro estrutural para detalhamento final.)"
+                        .format(asMin, diam, nBarras, espacamento)
                     isCalculating = false
                 },
                 enabled = !isCalculating,
