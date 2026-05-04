@@ -1,3 +1,5 @@
+**04/05/2026**: Criado teste de integração Laje → Dashboard:
+	- Preenche dados na Laje, navega até Dashboard e valida exibição dos dados/resultados
 **04/05/2026**: Criado teste de integração Sapata → Dashboard:
 	- Preenche dados na Sapata, navega até Dashboard e valida exibição dos dados/resultados
 **04/05/2026**: Criado teste de integração Viga Principal → Dashboard:
