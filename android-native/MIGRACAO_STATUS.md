@@ -1,3 +1,6 @@
+**04/05/2026**: Integrada persistência DataStore à tela Viga Principal:
+	- Carrega valores salvos ao abrir
+	- Salva dados ao calcular
 **04/05/2026**: Iniciada persistência de dados com DataStore Preferences:
 	- Estrutura criada para salvar/restaurar dados da Viga Principal
 	- Padrão poderá ser replicado para demais calculadoras

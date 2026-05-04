@@ -6,6 +6,11 @@ import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.viewModelScope
+import com.psinox.datastore.VigaPrincipalDataStore
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.psinox.data.perfisData
@@ -14,13 +19,27 @@ import com.psinox.data.E_ACO_MPA
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+
+@Composable
 fun VigaPrincipalScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+    val dataStore = remember { VigaPrincipalDataStore(context) }
     var perfil by remember { mutableStateOf("") }
     var carga by remember { mutableStateOf("") }
     var vao by remember { mutableStateOf("") }
     var tipoAco by remember { mutableStateOf(tiposAco.first().nome) }
     var resultado by remember { mutableStateOf("") }
     var erro by remember { mutableStateOf("") }
+    val scope = rememberCoroutineScope()
+
+    // Carregar valores salvos ao abrir a tela
+    LaunchedEffect(Unit) {
+        dataStore.vigaData.collect { state ->
+            if (state.comprimento > 0f) vao = state.comprimento.toString()
+            if (state.largura > 0f) carga = state.largura.toString()
+            if (state.altura > 0f) perfil = state.altura.toString()
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -124,6 +143,14 @@ fun VigaPrincipalScreen(onBack: () -> Unit) {
                     val Msd_kNm = (q_kN_m * L_m * L_m) / 8 * 1.4 // Majorado
                     val Wx_req_cm3 = (Msd_kNm * 100) / (fy / 10)
                     resultado = "Perfil: ${perfilSelecionado.nome}\nTipo de aço: $tipoAco\nVão: $vaoM m\nCarga: $cargaKgfM kgf/m\n\nMomento solicitante (Msd): %.2f kNm\nWx mínimo requerido: %.2f cm³\n\n(Consulte Wx do perfil e compare com o requerido para validar a segurança.)".format(Msd_kNm, Wx_req_cm3)
+                    // Salvar dados no DataStore
+                    scope.launch {
+                        dataStore.salvarViga(
+                            comprimento = vaoM.toFloat(),
+                            largura = cargaKgfM.toFloat(),
+                            altura = perfil.toFloatOrNull() ?: 0f
+                        )
+                    }
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
