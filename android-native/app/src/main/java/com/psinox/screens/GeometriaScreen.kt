@@ -5,18 +5,37 @@ import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
+import com.psinox.datastore.GeometriaDataStore
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+@Composable
 fun GeometriaScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+    val dataStore = remember { GeometriaDataStore(context) }
+    val scope = rememberCoroutineScope()
     var vaoX by remember { mutableStateOf("") }
     var vaoY by remember { mutableStateOf("") }
     var balancoXEsq by remember { mutableStateOf("") }
     var balancoXDir by remember { mutableStateOf("") }
     var balancoYSup by remember { mutableStateOf("") }
     var balancoYInf by remember { mutableStateOf("") }
+
+    // Carregar valores salvos ao abrir a tela
+    LaunchedEffect(Unit) {
+        dataStore.geometriaData.collect { state ->
+            if (state.vaoX > 0f) vaoX = state.vaoX.toString()
+            if (state.vaoY > 0f) vaoY = state.vaoY.toString()
+            if (state.balancoXEsq > 0f) balancoXEsq = state.balancoXEsq.toString()
+            if (state.balancoXDir > 0f) balancoXDir = state.balancoXDir.toString()
+            if (state.balancoYSup > 0f) balancoYSup = state.balancoYSup.toString()
+            if (state.balancoYInf > 0f) balancoYInf = state.balancoYInf.toString()
+        }
+    }
     var resultado by remember { mutableStateOf("") }
 
     Scaffold(
@@ -78,14 +97,24 @@ fun GeometriaScreen(onBack: () -> Unit) {
             )
             Button(
                 onClick = {
-                    resultado = analisarGeometria(
-                        vaoX.toDoubleOrNull() ?: 0.0,
-                        vaoY.toDoubleOrNull() ?: 0.0,
-                        balancoXEsq.toDoubleOrNull() ?: 0.0,
-                        balancoXDir.toDoubleOrNull() ?: 0.0,
-                        balancoYSup.toDoubleOrNull() ?: 0.0,
-                        balancoYInf.toDoubleOrNull() ?: 0.0
-                    )
+                    val vX = vaoX.toDoubleOrNull() ?: 0.0
+                    val vY = vaoY.toDoubleOrNull() ?: 0.0
+                    val bXEsq = balancoXEsq.toDoubleOrNull() ?: 0.0
+                    val bXDir = balancoXDir.toDoubleOrNull() ?: 0.0
+                    val bYSup = balancoYSup.toDoubleOrNull() ?: 0.0
+                    val bYInf = balancoYInf.toDoubleOrNull() ?: 0.0
+                    resultado = analisarGeometria(vX, vY, bXEsq, bXDir, bYSup, bYInf)
+                    // Salvar dados no DataStore
+                    scope.launch {
+                        dataStore.salvarGeometria(
+                            vaoX = vX.toFloat(),
+                            vaoY = vY.toFloat(),
+                            balancoXEsq = bXEsq.toFloat(),
+                            balancoXDir = bXDir.toFloat(),
+                            balancoYSup = bYSup.toFloat(),
+                            balancoYInf = bYInf.toFloat()
+                        )
+                    }
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {

@@ -1,3 +1,5 @@
+**04/05/2026**: Persistência DataStore replicada para Geometria:
+	- Dados salvos/restaurados automaticamente na tela Geometria
 **04/05/2026**: Persistência DataStore replicada para Gauge:
 	- Dados salvos/restaurados automaticamente na tela Gauge
 **04/05/2026**: Persistência DataStore replicada para VigaSecundaria:
