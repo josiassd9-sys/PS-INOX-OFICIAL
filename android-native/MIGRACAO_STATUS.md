@@ -1,3 +1,5 @@
+**04/05/2026**: Criado teste automatizado de persistência para VigaPrincipal:
+	- Valida que dados preenchidos são restaurados ao reabrir a tela (DataStore)
 **04/05/2026**: Persistência DataStore replicada para Geometria:
 	- Dados salvos/restaurados automaticamente na tela Geometria
 **04/05/2026**: Persistência DataStore replicada para Gauge:
