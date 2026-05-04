@@ -1,3 +1,6 @@
+**04/05/2026**: Criado teste automatizado de fluxo completo do Gauge:
+	- Simula preenchimento de dados, cálculo e validação do resultado
+	- Valida exibição do resultado esperado (ex: Gauge Correspondente)
 **04/05/2026**: Criado teste automatizado de fluxo completo da Viga Secundária:
 	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
 	- Valida exibição do resultado esperado (ex: Momento Fletor Máximo)
