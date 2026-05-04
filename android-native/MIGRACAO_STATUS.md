@@ -1,3 +1,7 @@
+**04/05/2026**: ConfiguracoesScreen migrada:
+	- Alternância de notificações e tema escuro (UI funcional)
+	- Pronta para incrementos de persistência e integração com preferências reais
+	Próximos passos: implementar salvamento real das configurações e integração com tema global
 **04/05/2026**: GeometriaScreen já migrada com lógica realista:
 	- Analisa vãos, balanços e relação de lados
 	- Fornece alertas, insights e recomendações estruturais
