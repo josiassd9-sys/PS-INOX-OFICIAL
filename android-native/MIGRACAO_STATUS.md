@@ -1,3 +1,7 @@
+**04/05/2026**: Criado teste instrumentado para GaugeScreen:
+	- Valida fluxo de cálculo e exibição do resultado
+	- Garante robustez e evita regressão na lógica migrada
+	Próximos passos: ampliar cobertura de testes para GeometriaScreen
 **04/05/2026**: Criado teste instrumentado para ArmaduraSapataScreen:
 	- Valida fluxo de cálculo e exibição do resultado
 	- Garante robustez e evita regressão na lógica migrada
