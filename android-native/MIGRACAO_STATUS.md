@@ -1,3 +1,7 @@
+**04/05/2026**: SobreScreen migrada:
+	- Exibe informações institucionais, versão e créditos
+	- Pronta para incrementos de changelog, links ou informações de contato
+	Próximos passos: adicionar changelog e links úteis
 **04/05/2026**: DashboardScreen migrada:
 	- Exibe totais de perfis, materiais e lista de gauges
 	- Pronta para incrementos de gráficos, indicadores dinâmicos e integração com uso real
