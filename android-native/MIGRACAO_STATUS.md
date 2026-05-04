@@ -1,3 +1,5 @@
+**04/05/2026**: Criado teste automatizado de fluxo das telas auxiliares:
+	- Valida navegação e exibição de elementos-chave em Materiais, Dashboard, Configurações, Sobre e AISettings
 **04/05/2026**: Criado teste automatizado de fluxo completo da Geometria:
 	- Simula preenchimento de dados, cálculo e validação do resultado
 	- Valida exibição do resultado esperado (ex: Área Calculada)
