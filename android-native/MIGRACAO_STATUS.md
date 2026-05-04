@@ -1,3 +1,6 @@
+**04/05/2026**: Criado teste automatizado de fluxo completo da Viga Secundária:
+	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
+	- Valida exibição do resultado esperado (ex: Momento Fletor Máximo)
 **04/05/2026**: Criado teste automatizado de fluxo completo da Armadura de Sapata:
 	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
 	- Valida exibição do resultado esperado (ex: Área de Aço da Armadura)
