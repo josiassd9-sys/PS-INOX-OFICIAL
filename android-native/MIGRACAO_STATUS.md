@@ -1,3 +1,5 @@
+**04/05/2026**: Criado teste de integração Gauge → Dashboard:
+	- Preenche dados no Gauge, navega até Dashboard e valida exibição dos dados/resultados
 **04/05/2026**: Criado teste de integração Geometria → Dashboard:
 	- Preenche dados na Geometria, navega até Dashboard e valida exibição dos dados/resultados
 **04/05/2026**: Criado teste de integração Armadura de Sapata → Dashboard:
