@@ -1,3 +1,4 @@
+**04/05/2026**: Criado teste de integração para a tela de Materiais (aço inox), validando exibição e clique.
 **04/05/2026**: Criado teste de integração para o Dashboard recebendo dados das calculadoras principais.
 **04/05/2026**: Criado teste de integração completo para persistência e navegação em todas as telas/calculadoras principais.
 **04/05/2026**: Criado teste de integração para persistência e navegação:
