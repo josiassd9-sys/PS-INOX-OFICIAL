@@ -1,3 +1,7 @@
+**04/05/2026**: MateriaisScreen migrada:
+	- Lista de materiais cadastrados exibida
+	- Pronta para incrementos de filtro, busca ou integração com estoque
+	Próximos passos: implementar busca/filtro e integração com MaterialDetailScreen
 **04/05/2026**: ConfiguracoesScreen migrada:
 	- Alternância de notificações e tema escuro (UI funcional)
 	- Pronta para incrementos de persistência e integração com preferências reais
