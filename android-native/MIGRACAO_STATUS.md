@@ -1,3 +1,5 @@
+**04/05/2026**: Criado teste de integração Viga Principal → Dashboard:
+	- Preenche dados na Viga Principal, navega até Dashboard e valida exibição dos dados/resultados
 **04/05/2026**: Criado teste automatizado de fluxo das telas auxiliares:
 	- Valida navegação e exibição de elementos-chave em Materiais, Dashboard, Configurações, Sobre e AISettings
 **04/05/2026**: Criado teste automatizado de fluxo completo da Geometria:
