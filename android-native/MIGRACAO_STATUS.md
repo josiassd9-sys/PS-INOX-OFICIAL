@@ -1,3 +1,6 @@
+**04/05/2026**: Ampliado teste automatizado de navegação para telas secundárias:
+	- Valida navegação Home → AISettings, Sobre, Gauge, Configurações
+	- Garante cobertura dos principais fluxos de navegação
 **04/05/2026**: Criado teste automatizado de navegação entre telas principais:
 	- Valida navegação Home → Perfis, Materiais, Dashboard
 	- Garante robustez do fluxo principal do app
