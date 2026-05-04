@@ -1,3 +1,7 @@
+**04/05/2026**: Criado teste instrumentado para SapataScreen:
+	- Valida fluxo de cálculo e exibição do resultado
+	- Garante robustez e evita regressão na lógica migrada
+	Próximos passos: ampliar cobertura de testes para ArmaduraSapataScreen, GaugeScreen, GeometriaScreen
 **04/05/2026**: Criado teste instrumentado para LajeScreen:
 	- Valida fluxo de cálculo e exibição do resultado
 	- Garante robustez e evita regressão na lógica migrada
