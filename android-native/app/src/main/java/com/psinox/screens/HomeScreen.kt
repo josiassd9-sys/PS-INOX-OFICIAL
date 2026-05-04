@@ -14,13 +14,15 @@ fun HomeScreen(
     onNavigateToMateriais: () -> Unit,
     onNavigateToDashboard: () -> Unit,
     onNavigateToAISettings: () -> Unit,
-    onNavigateToSobre: () -> Unit
+    onNavigateToSobre: () -> Unit,
+    onNavigateToGauge: () -> Unit,
+    onNavigateToConfiguracoes: () -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
+            .padding(horizontal = 16.dp, vertical = 24.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.Top),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
@@ -29,32 +31,36 @@ fun HomeScreen(
         )
         Spacer(modifier = Modifier.height(24.dp))
         Card(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
         ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(text = "Total de Perfis: ${dashboardInfo.totalPerfis}")
-                Text(text = "Total de Materiais: ${dashboardInfo.totalMateriais}")
+            Column(modifier = Modifier.padding(20.dp)) {
+                Text(text = "Total de Perfis: ${dashboardInfo.totalPerfis}", style = MaterialTheme.typography.bodyLarge)
+                Text(text = "Total de Materiais: ${dashboardInfo.totalMateriais}", style = MaterialTheme.typography.bodyLarge)
             }
         }
-        Spacer(modifier = Modifier.height(24.dp))
-        Button(onClick = onNavigateToPerfis) {
-            Text("Ver Perfis")
-        }
-        Spacer(modifier = Modifier.height(12.dp))
-        Button(onClick = onNavigateToMateriais) {
-            Text("Ver Materiais")
-        }
-        Spacer(modifier = Modifier.height(12.dp))
-        Button(onClick = onNavigateToDashboard) {
-            Text("Ver Dashboard")
-        }
-        Spacer(modifier = Modifier.height(12.dp))
-        Button(onClick = onNavigateToAISettings) {
-            Text("Configurações de IA")
-        }
-        Spacer(modifier = Modifier.height(12.dp))
-        Button(onClick = onNavigateToSobre) {
-            Text("Sobre o App")
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Button(onClick = onNavigateToPerfis, modifier = Modifier.fillMaxWidth()) {
+                Text("Ver Perfis")
+            }
+            Button(onClick = onNavigateToMateriais, modifier = Modifier.fillMaxWidth()) {
+                Text("Ver Materiais")
+            }
+            Button(onClick = onNavigateToDashboard, modifier = Modifier.fillMaxWidth()) {
+                Text("Ver Dashboard")
+            }
+            Button(onClick = onNavigateToAISettings, modifier = Modifier.fillMaxWidth()) {
+                Text("Configurações de IA")
+            }
+            Button(onClick = onNavigateToGauge, modifier = Modifier.fillMaxWidth()) {
+                Text("Ver Gauges")
+            }
+            Button(onClick = onNavigateToConfiguracoes, modifier = Modifier.fillMaxWidth()) {
+                Text("Configurações Gerais")
+            }
+            Button(onClick = onNavigateToSobre, modifier = Modifier.fillMaxWidth()) {
+                Text("Sobre o App")
+            }
         }
     }
 }

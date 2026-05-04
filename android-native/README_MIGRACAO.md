@@ -50,6 +50,7 @@ Migrar todo o fluxo, lógica e visual do app híbrido (web/Capacitor) para um ap
 - **Mantido:** Lógica de filtros, estrutura de dados, visual das telas, experiência do usuário, nomes e funções dos componentes.
 - **Adaptado:** Sintaxe (de React/JS para Kotlin/Compose), navegação (React Router para Navigation Compose), assets para formato Android, eventuais APIs para uso nativo.
 
+
 ## 4. Observações Importantes
 - Nenhuma funcionalidade será removida, apenas reimplementada em nativo.
 - O visual será o mais fiel possível ao original, aproveitando recursos nativos para melhor performance.
@@ -58,5 +59,76 @@ Migrar todo o fluxo, lógica e visual do app híbrido (web/Capacitor) para um ap
 
 ---
 
-## Resumo
-Vamos transformar o app híbrido em um app Android nativo, mantendo toda a lógica, visual e experiência, reescrevendo cada parte em Jetpack Compose/Kotlin, com foco em fidelidade, performance e manutenção.
+## 4.1. Consulta à Estrutura do Projeto Híbrido (PS-INOX)
+
+Para cada nova página, menu, calculadora ou processo a ser migrado para o app nativo, é obrigatório registrar no histórico e na documentação a consulta à estrutura da pasta:
+
+	PS C:\Users\josia\PS-INOX
+
+Sempre que for iniciar a migração de uma nova funcionalidade, registre no README (ou no arquivo de status) a referência à consulta dessa pasta, detalhando quais arquivos, subpastas ou fluxos do projeto híbrido foram analisados. Isso facilita o rastreio do passo a passo da migração e garante transparência e entendimento do processo.
+
+Exemplo de registro:
+
+> [MIGRAÇÃO] Consulta realizada à pasta PS-INOX/src/app/perfis para implementar a tela de Perfis no nativo.
+
+Inclua esse tipo de anotação para cada etapa relevante do processo de migração.
+
+---
+
+
+## 5. Inventário de Páginas, Menus e Calculadoras do Projeto Híbrido
+
+### Páginas e Menus Principais
+- Home (Dashboard)
+- Perfis
+	- Calculadora de Perfis
+		- Armadura Sapata
+		- Geometria
+		- Laje
+		- Pilar
+		- Sapata
+		- Viga Principal
+		- Viga Secundária
+		- Visualização
+	- Guia de Perfis
+	- Informações de Perfis
+	- Parâmetros Vigas I
+	- Tabela de Perfis
+	- Tabela IPE
+	- Tabela Steel Deck
+- Materiais (Lista de Materiais)
+- Sucatas
+	- Lista de Sucatas
+	- Tabela de Sucata
+- Gauge
+- Configurações Gerais
+- Configurações de IA
+- AI Assistant
+- Informativos
+	- Acabamentos Inox
+	- Centro de Usinagem
+	- Corte a Laser
+	- Desenho Técnico
+	- Início da Produção Industrial
+	- Linha de Montagem Automotiva
+	- Logística e Armazenamento
+	- Normas ASTM
+	- Processos de Fabricação
+	- Processos Industriais Modernos
+	- Tipos de Solda
+- Mecânica
+	- Elementos de Fixação
+	- Sistemas de Vedação
+	- Transmissão de Potência
+- Calculadora
+	- Balança
+		- Impressão
+		- Visualização
+- Sobre
+
+### Observações
+- Este inventário foi levantado a partir da estrutura de pastas e arquivos do projeto híbrido (PS-INOX/src/app).
+- Recomenda-se marcar cada item migrado e validar a equivalência funcional e visual no app nativo.
+- Caso existam páginas dinâmicas, rotas de API ou integrações não listadas, incluir manualmente.
+
+---

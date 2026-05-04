@@ -19,7 +19,9 @@ class HomeScreenTest {
                 onNavigateToMateriais = {},
                 onNavigateToDashboard = {},
                 onNavigateToAISettings = {},
-                onNavigateToSobre = {}
+                onNavigateToSobre = {},
+                onNavigateToGauge = {},
+                onNavigateToConfiguracoes = {}
             )
         }
         composeTestRule.onNodeWithText("Bem-vindo ao PS INOX").assertIsDisplayed()
