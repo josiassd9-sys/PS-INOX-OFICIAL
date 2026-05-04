@@ -1,3 +1,9 @@
+**04/05/2026**: Aprimorada GaugeScreen com lógica de cálculo:
+	- Permite entrada de carga (kgf/m²) e tipo de uso (piso, cobertura, divisória)
+	- Calcula espessura mínima recomendada conforme uso e carga
+	- Lista gauges compatíveis cadastrados
+	- Feedback claro ao usuário e tabela de referência
+	Próximos passos: validar recomendações com normas técnicas e ampliar base de gauges
 
 **04/05/2026**: Implementada lógica realista na tela VigaSecundariaScreen:
 	- Validação do perfil IPE informado, carga e espaçamento
