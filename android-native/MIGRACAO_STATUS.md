@@ -1,3 +1,6 @@
+**04/05/2026**: Criado teste automatizado de fluxo completo da Geometria:
+	- Simula preenchimento de dados, cálculo e validação do resultado
+	- Valida exibição do resultado esperado (ex: Área Calculada)
 **04/05/2026**: Criado teste automatizado de fluxo completo do Gauge:
 	- Simula preenchimento de dados, cálculo e validação do resultado
 	- Valida exibição do resultado esperado (ex: Gauge Correspondente)
