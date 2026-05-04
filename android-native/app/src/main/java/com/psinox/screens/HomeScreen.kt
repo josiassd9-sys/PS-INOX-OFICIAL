@@ -20,6 +20,10 @@ fun HomeScreen(
     onNavigateToTubosODSchedule: () -> Unit,
     onNavigateToMetalons: () -> Unit,
     onNavigateToChapas: () -> Unit
+    ,onNavigateToListaMateriais: () -> Unit
+    ,onNavigateToTabelaSucata: () -> Unit
+    ,onNavigateToListaSucatas: () -> Unit
+    ,onNavigateToConfiguracoesFerramentas: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -43,6 +47,18 @@ fun HomeScreen(
             }
         }
         Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                                    Button(onClick = onNavigateToListaMateriais, modifier = Modifier.fillMaxWidth()) {
+                                        Text("Lista de Materiais")
+                                    }
+                                    Button(onClick = onNavigateToTabelaSucata, modifier = Modifier.fillMaxWidth()) {
+                                        Text("Tabela de Sucata")
+                                    }
+                                    Button(onClick = onNavigateToListaSucatas, modifier = Modifier.fillMaxWidth()) {
+                                        Text("Lista de Sucatas")
+                                    }
+                                    Button(onClick = onNavigateToConfiguracoesFerramentas, modifier = Modifier.fillMaxWidth()) {
+                                        Text("Configurações de Ferramentas")
+                                    }
                         Button(onClick = onNavigateToTubosODSchedule, modifier = Modifier.fillMaxWidth()) {
                             Text("Tubos OD & Schedule")
                         }

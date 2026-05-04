@@ -52,9 +52,25 @@ class MainActivity : ComponentActivity() {
                                 onNavigateToConfiguracoes = { navController.navigate("configuracoes") },
                                 onNavigateToTubosODSchedule = { navController.navigate("tubos_od_schedule") },
                                 onNavigateToMetalons = { navController.navigate("metalons") },
-                                onNavigateToChapas = { navController.navigate("chapas") }
+                                onNavigateToChapas = { navController.navigate("chapas") },
+                                onNavigateToListaMateriais = { navController.navigate("lista_materiais") },
+                                onNavigateToTabelaSucata = { navController.navigate("tabela_sucata") },
+                                onNavigateToListaSucatas = { navController.navigate("lista_sucatas") },
+                                onNavigateToConfiguracoesFerramentas = { navController.navigate("configuracoes_ferramentas") }
                             )
                         }
+                                                                                                composable("lista_materiais") {
+                                                                                                    com.psinox.screens.ListaMateriaisScreen(onBack = { navController.popBackStack() })
+                                                                                                }
+                                                                                                composable("tabela_sucata") {
+                                                                                                    com.psinox.screens.TabelaSucataScreen(onBack = { navController.popBackStack() })
+                                                                                                }
+                                                                                                composable("lista_sucatas") {
+                                                                                                    com.psinox.screens.ListaSucatasScreen(onBack = { navController.popBackStack() })
+                                                                                                }
+                                                                                                composable("configuracoes_ferramentas") {
+                                                                                                    com.psinox.screens.ConfiguracoesFerramentasScreen(onBack = { navController.popBackStack() })
+                                                                                                }
                                                                         composable("tubos_od_schedule") {
                                                                             com.psinox.screens.TubosODScheduleScreen(onBack = { navController.popBackStack() })
                                                                         }

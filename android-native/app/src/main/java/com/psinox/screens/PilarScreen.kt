@@ -20,6 +20,7 @@ fun PilarScreen(onBack: () -> Unit) {
     var tipoAco by remember { mutableStateOf(tiposAco.first().nome) }
     var resultado by remember { mutableStateOf("") }
     var erro by remember { mutableStateOf("") }
+    var alertaUtilizacao by remember { mutableStateOf("") }
 
     Column(modifier = Modifier
         .fillMaxSize()
@@ -73,6 +74,7 @@ fun PilarScreen(onBack: () -> Unit) {
             onClick = {
                 erro = ""
                 resultado = ""
+                alertaUtilizacao = ""
                 val alturaM = altura.replace(",", ".").toDoubleOrNull()
                 val cargaKgf = carga.replace(",", ".").toDoubleOrNull()
                 val perfilSelecionado = perfisData.find { it.nome.equals(perfil, ignoreCase = true) }
@@ -91,8 +93,8 @@ fun PilarScreen(onBack: () -> Unit) {
                     erro = "Informe um perfil válido (ex: Perfil A)."
                     return@Button
                 }
-                // Cálculo simplificado: tensão atuante e admissível
-                val area_cm2 = 20.0 // Exemplo fixo, substituir pelo valor real do perfil
+                // Cálculo realista: usar área do perfil selecionado
+                val area_cm2 = perfilSelecionado.areaCm2
                 val area_mm2 = area_cm2 * 100.0
                 val P_N = cargaKgf * 9.807 * 1.4 // Majorado
                 val slenderness = (alturaM * 100) / 2.0 // Exemplo: usar raio de giração real do perfil
@@ -107,8 +109,12 @@ fun PilarScreen(onBack: () -> Unit) {
                 val maxLoad_N = allowableStress_MPa * area_mm2
                 val actingStress_MPa = P_N / area_mm2
                 val utilizacao = (actingStress_MPa / allowableStress_MPa) * 100
-                resultado = "Perfil: ${perfilSelecionado.nome}\nTipo de aço: $tipoAco\nAltura: $alturaM m\nCarga: $cargaKgf kgf\n\nTensão atuante: %.2f MPa\nTensão admissível: %.2f MPa\nUtilização: %.1f%%\n\n%s".format(actingStress_MPa, allowableStress_MPa, utilizacao,
-                    if (utilizacao > 100) "Atenção: Pilar não atende!" else "Dimensionamento seguro.")
+                resultado = "Perfil: ${perfilSelecionado.nome}\nTipo de aço: $tipoAco\nAltura: $alturaM m\nCarga: $cargaKgf kgf\nÁrea: %.2f cm²\n\nTensão atuante: %.2f MPa\nTensão admissível: %.2f MPa\nUtilização: %.1f%%".format(area_cm2, actingStress_MPa, allowableStress_MPa, utilizacao)
+                if (utilizacao > 100) {
+                    alertaUtilizacao = "Atenção: Pilar NÃO atende! Utilização acima de 100%."
+                } else {
+                    alertaUtilizacao = "Dimensionamento seguro."
+                }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -124,6 +130,10 @@ fun PilarScreen(onBack: () -> Unit) {
             Card(modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(resultado, style = MaterialTheme.typography.bodyMedium)
+                    if (alertaUtilizacao.isNotBlank()) {
+                        Spacer(Modifier.height(12.dp))
+                        Text(alertaUtilizacao, color = if (alertaUtilizacao.contains("NÃO atende")) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.bodyMedium)
+                    }
                 }
             }
         }

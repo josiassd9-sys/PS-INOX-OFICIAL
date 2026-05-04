@@ -9,7 +9,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.psinox.data.tubosODScheduleData
+import com.psinox.data.tubosODData
 import com.psinox.data.metalonData
 import com.psinox.data.chapasData
 
@@ -25,15 +25,13 @@ fun TubosODScheduleScreen(onBack: () -> Unit) {
             }
         )
         Spacer(Modifier.height(16.dp))
-        Text("OD (mm)  |  Schedule  |  Espessura (mm)  |  Peso (kg/m)", style = MaterialTheme.typography.bodyMedium)
+        Text("Descrição | Peso (kg/m)", style = MaterialTheme.typography.bodyMedium)
         LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            items(tubosODScheduleData) { tubo ->
+            items(tubosODData) { tubo ->
                 Card(Modifier.fillMaxWidth()) {
                     Row(Modifier.padding(12.dp)) {
-                        Text("${tubo.odMm}", Modifier.weight(1f))
-                        Text(tubo.schedule, Modifier.weight(1f))
-                        Text("${tubo.espessuraMm}", Modifier.weight(1f))
-                        Text("${tubo.pesoKgM}", Modifier.weight(1f))
+                        Text(tubo.descricao, Modifier.weight(2f))
+                        Text("${tubo.peso}", Modifier.weight(1f))
                     }
                 }
             }
@@ -53,18 +51,17 @@ fun MetalonsScreen(onBack: () -> Unit) {
             }
         )
         Spacer(Modifier.height(16.dp))
-        Text("Largura x Altura (mm) | Espessura (mm) | Peso (kg/m)", style = MaterialTheme.typography.bodyMedium)
-        LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            items(metalonData) { metalon ->
-                Card(Modifier.fillMaxWidth()) {
-                    Row(Modifier.padding(12.dp)) {
-                        Text("${metalon.larguraMm} x ${metalon.alturaMm}", Modifier.weight(1f))
-                        Text("${metalon.espessuraMm}", Modifier.weight(1f))
-                        Text("${metalon.pesoKgM}", Modifier.weight(1f))
+            Text("Descrição | Peso (kg/m)", style = MaterialTheme.typography.bodyMedium)
+            LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                items(metalonsData) { metalon ->
+                    Card(Modifier.fillMaxWidth()) {
+                        Row(Modifier.padding(12.dp)) {
+                            Text(metalon.descricao, Modifier.weight(2f))
+                            Text("${metalon.peso}", Modifier.weight(1f))
+                        }
                     }
                 }
             }
-        }
     }
 }
 
@@ -80,15 +77,13 @@ fun ChapasScreen(onBack: () -> Unit) {
             }
         )
         Spacer(Modifier.height(16.dp))
-        Text("Espessura (mm) | Largura (mm) | Comprimento (mm) | Peso (kg)", style = MaterialTheme.typography.bodyMedium)
+        Text("Descrição | Peso (kg/un)", style = MaterialTheme.typography.bodyMedium)
         LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             items(chapasData) { chapa ->
                 Card(Modifier.fillMaxWidth()) {
                     Row(Modifier.padding(12.dp)) {
-                        Text("${chapa.espessuraMm}", Modifier.weight(1f))
-                        Text("${chapa.larguraMm}", Modifier.weight(1f))
-                        Text("${chapa.comprimentoMm}", Modifier.weight(1f))
-                        Text("${chapa.pesoKg}", Modifier.weight(1f))
+                        Text(chapa.descricao, Modifier.weight(2f))
+                        Text("${chapa.peso}", Modifier.weight(1f))
                     }
                 }
             }

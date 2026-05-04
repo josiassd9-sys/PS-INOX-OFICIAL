@@ -17,34 +17,5 @@ val tubosODScheduleData = listOf(
     TuboODSchedule(6, 33.4, "SCH40S", 3.38, 2.65)
 )
 
-// Metalons
-
-data class Metalon(
-    val id: Int,
-    val larguraMm: Double,
-    val alturaMm: Double,
-    val espessuraMm: Double,
-    val pesoKgM: Double
-)
-
-val metalonsData = listOf(
-    Metalon(1, 20.0, 20.0, 1.2, 0.68),
-    Metalon(2, 30.0, 20.0, 1.2, 0.82),
-    Metalon(3, 40.0, 20.0, 1.5, 1.18)
-)
-
-// Chapas
-
-data class Chapa(
-    val id: Int,
-    val espessuraMm: Double,
-    val larguraMm: Double,
-    val comprimentoMm: Double,
-    val pesoKg: Double
-)
-
-val chapasData = listOf(
-    Chapa(1, 0.8, 1000.0, 2000.0, 12.6),
-    Chapa(2, 1.2, 1000.0, 2000.0, 18.9),
-    Chapa(3, 2.0, 1000.0, 2000.0, 31.5)
-)
+// ...dados de metalons migrados para MetalonsData.kt
+// ...dados de chapas migrados para ChapasData.kt

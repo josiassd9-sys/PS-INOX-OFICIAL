@@ -1,3 +1,7 @@
+**04/05/2026**: Implementada lógica realista de exibição na tela de configurações de ferramentas (dados exibidos em cards, prontos para edição futura).
+**04/05/2026**: Implementada lógica realista de exibição nas telas Tabela de Sucata e Lista de Sucatas (dados exibidos em cards, prontos para evoluir para edição e busca).
+**04/05/2026**: Implementada lógica realista de listagem na tela Lista de Materiais (dados exibidos em cards, prontos para evoluir para edição e PDF).
+**04/05/2026**: Criadas e integradas ao menu principal as páginas de ferramentas: lista de materiais, tabela de sucata, lista de sucatas e configurações de ferramentas.
 **04/05/2026**: Criados testes de integração para as telas de tabelas de materiais (Tubos OD & Schedule, Metalons, Chapas).
 **04/05/2026**: Integradas as telas de tabelas de materiais (Tubos OD & Schedule, Metalons, Chapas) ao menu principal e navegação do app.
 **04/05/2026**: Adicionadas telas de tabelas de materiais: Tubos OD & Schedule, Metalons e Chapas (com navegação e visualização de dados).

@@ -30,6 +30,7 @@ fun VigaPrincipalScreen(onBack: () -> Unit) {
     var tipoAco by remember { mutableStateOf(tiposAco.first().nome) }
     var resultado by remember { mutableStateOf("") }
     var erro by remember { mutableStateOf("") }
+    var alertaWx by remember { mutableStateOf("") }
     val scope = rememberCoroutineScope()
 
     // Carregar valores salvos ao abrir a tela
@@ -119,6 +120,7 @@ fun VigaPrincipalScreen(onBack: () -> Unit) {
                 onClick = {
                     erro = ""
                     resultado = ""
+                    alertaWx = ""
                     val vaoM = vao.replace(",", ".").toDoubleOrNull()
                     val cargaKgfM = carga.replace(",", ".").toDoubleOrNull()
                     val perfilSelecionado = perfisData.find { it.nome.equals(perfil, ignoreCase = true) }
@@ -142,7 +144,13 @@ fun VigaPrincipalScreen(onBack: () -> Unit) {
                     val L_m = vaoM
                     val Msd_kNm = (q_kN_m * L_m * L_m) / 8 * 1.4 // Majorado
                     val Wx_req_cm3 = (Msd_kNm * 100) / (fy / 10)
-                    resultado = "Perfil: ${perfilSelecionado.nome}\nTipo de aço: $tipoAco\nVão: $vaoM m\nCarga: $cargaKgfM kgf/m\n\nMomento solicitante (Msd): %.2f kNm\nWx mínimo requerido: %.2f cm³\n\n(Consulte Wx do perfil e compare com o requerido para validar a segurança.)".format(Msd_kNm, Wx_req_cm3)
+                    val wxPerfil = perfilSelecionado.wxCm3
+                    resultado = "Perfil: ${perfilSelecionado.nome}\nTipo de aço: $tipoAco\nVão: $vaoM m\nCarga: $cargaKgfM kgf/m\n\nMomento solicitante (Msd): %.2f kNm\nWx mínimo requerido: %.2f cm³\nWx do perfil: %.2f cm³".format(Msd_kNm, Wx_req_cm3, wxPerfil)
+                    if (wxPerfil < Wx_req_cm3) {
+                        alertaWx = "Atenção: Wx do perfil (${String.format("%.2f", wxPerfil)} cm³) é INFERIOR ao mínimo requerido (${String.format("%.2f", Wx_req_cm3)} cm³). Selecione outro perfil!"
+                    } else {
+                        alertaWx = "Perfil atende ao Wx mínimo requerido."
+                    }
                     // Salvar dados no DataStore
                     scope.launch {
                         dataStore.salvarViga(
@@ -166,6 +174,10 @@ fun VigaPrincipalScreen(onBack: () -> Unit) {
                 Card(modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         Text(resultado, style = MaterialTheme.typography.bodyMedium)
+                        if (alertaWx.isNotBlank()) {
+                            Spacer(Modifier.height(12.dp))
+                            Text(alertaWx, color = if (alertaWx.contains("INFERIOR")) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.bodyMedium)
+                        }
                     }
                 }
             }
