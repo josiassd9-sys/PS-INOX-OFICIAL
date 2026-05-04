@@ -5,6 +5,9 @@ import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
+import com.psinox.datastore.VigaSecundariaDataStore
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.psinox.data.perfisData
@@ -15,11 +18,25 @@ import com.psinox.data.E_ACO_MPA
 @Composable
 
 @Composable
+@Composable
 fun VigaSecundariaScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+    val dataStore = remember { VigaSecundariaDataStore(context) }
+    val scope = rememberCoroutineScope()
     var perfil by remember { mutableStateOf("") }
     var carga by remember { mutableStateOf("") }
     var espacamento by remember { mutableStateOf("") }
     var tipoAco by remember { mutableStateOf(tiposAco.first().nome) }
+
+    // Carregar valores salvos ao abrir a tela
+    LaunchedEffect(Unit) {
+        dataStore.vigaSecundariaData.collect { state ->
+            if (state.perfil.isNotBlank()) perfil = state.perfil
+            if (state.carga > 0f) carga = state.carga.toString()
+            if (state.espacamento > 0f) espacamento = state.espacamento.toString()
+            if (state.tipoAco.isNotBlank()) tipoAco = state.tipoAco
+        }
+    }
     var resultado by remember { mutableStateOf("") }
     var erro by remember { mutableStateOf("") }
 
@@ -108,6 +125,15 @@ fun VigaSecundariaScreen(onBack: () -> Unit) {
                     val Msd_kNm = (q_kN_m * L_m * L_m) / 8 * 1.4 // Majorado
                     val Wx_req_cm3 = (Msd_kNm * 100) / (fy / 10)
                     resultado = "Perfil: $perfilInformado\nTipo de aço: $tipoAco\nEspaçamento: $espacamentoM m\nCarga: $cargaKgf kgf\n\nMomento solicitante (Msd): %.2f kNm\nWx mínimo requerido: %.2f cm³\n\n(Consulte Wx do perfil IPE informado e compare com o requerido para validar a segurança.)".format(Msd_kNm, Wx_req_cm3)
+                    // Salvar dados no DataStore
+                    scope.launch {
+                        dataStore.salvarVigaSecundaria(
+                            perfil = perfil,
+                            carga = cargaKgf.toFloat(),
+                            espacamento = espacamentoM.toFloat(),
+                            tipoAco = tipoAco
+                        )
+                    }
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
