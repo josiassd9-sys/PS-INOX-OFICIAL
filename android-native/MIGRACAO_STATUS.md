@@ -1,3 +1,6 @@
+**04/05/2026**: Criado teste automatizado de fluxo completo da Laje:
+	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
+	- Valida exibição do resultado esperado (ex: Área de Aço Necessária)
 **04/05/2026**: Criado teste automatizado de fluxo completo da Sapata:
 	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
 	- Valida exibição do resultado esperado (ex: Tensão Admissível do Solo)
