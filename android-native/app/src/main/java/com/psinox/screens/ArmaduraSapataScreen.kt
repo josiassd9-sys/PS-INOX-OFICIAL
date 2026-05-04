@@ -5,12 +5,19 @@ import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
+import com.psinox.datastore.ArmaduraSapataDataStore
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+@Composable
 fun ArmaduraSapataScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+    val dataStore = remember { ArmaduraSapataDataStore(context) }
+    val scope = rememberCoroutineScope()
     Scaffold(
         topBar = {
             TopAppBar(
@@ -39,6 +46,15 @@ fun ArmaduraSapataScreen(onBack: () -> Unit) {
             var concreteStrength by remember { mutableStateOf("25") }
             var steelStrength by remember { mutableStateOf("50") }
             var barDiameter by remember { mutableStateOf("10.0") }
+
+            // Carregar valores salvos ao abrir a tela
+            LaunchedEffect(Unit) {
+                dataStore.armaduraSapataData.collect { state ->
+                    concreteStrength = state.fck.toString()
+                    steelStrength = state.fyk.toString()
+                    barDiameter = state.diam.toString()
+                }
+            }
             var isCalculating by remember { mutableStateOf(false) }
             var result by remember { mutableStateOf<String?>(null) }
             var error by remember { mutableStateOf<String?>(null) }
@@ -100,6 +116,14 @@ fun ArmaduraSapataScreen(onBack: () -> Unit) {
                     result = "Área de aço mínima: %.2f cm²/m\nDiâmetro da barra: %.1f mm\nQuantidade de barras: %d por metro\nEspaçamento sugerido: c/%.1f cm\n\n(Consulte engenheiro estrutural para detalhamento final.)"
                         .format(asMin, diam, nBarras, espacamento)
                     isCalculating = false
+                    // Salvar dados no DataStore
+                    scope.launch {
+                        dataStore.salvarArmaduraSapata(
+                            fck = fck.toFloat(),
+                            fyk = fyk.toFloat(),
+                            diam = diam.toFloat()
+                        )
+                    }
                 },
                 enabled = !isCalculating,
                 modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
