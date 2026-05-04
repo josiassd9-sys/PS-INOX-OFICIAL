@@ -1,3 +1,5 @@
+**04/05/2026**: Criado teste automatizado de persistência para Laje:
+	- Valida que dados preenchidos são restaurados ao reabrir a tela (DataStore)
 **04/05/2026**: Criado teste automatizado de persistência para Sapata:
 	- Valida que dados preenchidos são restaurados ao reabrir a tela (DataStore)
 **04/05/2026**: Criado teste automatizado de persistência para VigaPrincipal:
