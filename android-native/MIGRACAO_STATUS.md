@@ -1,3 +1,6 @@
+**04/05/2026**: Criado teste automatizado de navegação encadeada:
+	- Simula fluxo real: Home → Perfis → VigaPrincipal → Visualizacao → Dashboard → Configurações
+	- Garante que rotas encadeadas funcionam sem regressão
 **04/05/2026**: Ampliado teste automatizado de navegação para telas secundárias:
 	- Valida navegação Home → AISettings, Sobre, Gauge, Configurações
 	- Garante cobertura dos principais fluxos de navegação
