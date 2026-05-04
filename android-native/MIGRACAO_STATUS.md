@@ -1,3 +1,7 @@
+**04/05/2026**: Criado teste instrumentado para VigaSecundariaScreen:
+	- Valida fluxo de cálculo e exibição do resultado
+	- Garante robustez e evita regressão na lógica migrada
+	Próximos passos: ampliar cobertura de testes para demais telas/calculadoras
 **04/05/2026**: SobreScreen migrada:
 	- Exibe informações institucionais, versão e créditos
 	- Pronta para incrementos de changelog, links ou informações de contato
