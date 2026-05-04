@@ -1,3 +1,7 @@
+**04/05/2026**: Criado teste automatizado de navegação entre telas principais:
+	- Valida navegação Home → Perfis, Materiais, Dashboard
+	- Garante robustez do fluxo principal do app
+	Próximos passos: ampliar testes de navegação para demais fluxos e telas secundárias
 **04/05/2026**: Criado teste instrumentado para GeometriaScreen:
 	- Valida fluxo de análise e exibição do resultado
 	- Garante robustez e evita regressão na lógica migrada
