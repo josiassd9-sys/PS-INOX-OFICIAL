@@ -1,3 +1,6 @@
+**04/05/2026**: Criado teste automatizado de fluxo completo da Armadura de Sapata:
+	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
+	- Valida exibição do resultado esperado (ex: Área de Aço da Armadura)
 **04/05/2026**: Criado teste automatizado de fluxo completo da Laje:
 	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
 	- Valida exibição do resultado esperado (ex: Área de Aço Necessária)
