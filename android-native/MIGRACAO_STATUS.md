@@ -1,3 +1,7 @@
+**04/05/2026**: DashboardScreen migrada:
+	- Exibe totais de perfis, materiais e lista de gauges
+	- Pronta para incrementos de gráficos, indicadores dinâmicos e integração com uso real
+	Próximos passos: implementar gráficos e indicadores de uso
 **04/05/2026**: AISettingsScreen migrada:
 	- Alternância de ativação da IA e campo para API Key (UI funcional)
 	- Pronta para incrementos de persistência e integração com recursos de IA
