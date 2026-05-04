@@ -1,3 +1,7 @@
+**04/05/2026**: AISettingsScreen migrada:
+	- Alternância de ativação da IA e campo para API Key (UI funcional)
+	- Pronta para incrementos de persistência e integração com recursos de IA
+	Próximos passos: implementar salvamento real e integração com funcionalidades de IA
 **04/05/2026**: MaterialDetailScreen migrada:
 	- Exibe detalhes do material selecionado (nome, tipo, ID)
 	- Pronta para incrementos de propriedades técnicas, estoque ou integração com orçamentos
