@@ -1,3 +1,6 @@
+**04/05/2026**: Criado teste automatizado de fluxo completo da Sapata:
+	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
+	- Valida exibição do resultado esperado (ex: Tensão Admissível do Solo)
 **04/05/2026**: Criado teste automatizado de fluxo completo da Viga Principal:
 	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
 	- Valida exibição do resultado esperado (ex: Momento Fletor Máximo)
