@@ -1,3 +1,6 @@
+**04/05/2026**: Criado teste automatizado de fluxo completo da Viga Principal:
+	- Simula preenchimento de dados, cálculo e navegação até Visualizacao
+	- Valida exibição do resultado esperado (ex: Momento Fletor Máximo)
 **04/05/2026**: Criado teste automatizado de navegação encadeada:
 	- Simula fluxo real: Home → Perfis → VigaPrincipal → Visualizacao → Dashboard → Configurações
 	- Garante que rotas encadeadas funcionam sem regressão
