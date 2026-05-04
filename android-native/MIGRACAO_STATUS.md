@@ -1,3 +1,4 @@
+**04/05/2026**: Criado teste de integração completo para persistência e navegação em todas as telas/calculadoras principais.
 **04/05/2026**: Criado teste de integração para persistência e navegação:
 	- Preenche dados em múltiplas telas, navega entre elas e valida persistência e fluxo
 **04/05/2026**: Criado teste automatizado de persistência para Geometria:
