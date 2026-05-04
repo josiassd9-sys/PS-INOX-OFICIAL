@@ -1,3 +1,5 @@
+**04/05/2026**: Persistência DataStore replicada para Laje:
+	- Dados salvos/restaurados automaticamente na tela Laje
 **04/05/2026**: Persistência DataStore replicada para Sapata:
 	- Dados salvos/restaurados automaticamente na tela Sapata
 **04/05/2026**: Integrada persistência DataStore à tela Viga Principal:

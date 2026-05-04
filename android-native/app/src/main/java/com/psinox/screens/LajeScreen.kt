@@ -5,15 +5,31 @@ import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
+import com.psinox.datastore.LajeDataStore
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+@Composable
 fun LajeScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+    val dataStore = remember { LajeDataStore(context) }
+    val scope = rememberCoroutineScope()
     var chapa by remember { mutableStateOf("") }
     var espessuraConcreto by remember { mutableStateOf("") }
     var carga by remember { mutableStateOf("") }
+
+    // Carregar valores salvos ao abrir a tela
+    LaunchedEffect(Unit) {
+        dataStore.lajeData.collect { state ->
+            if (state.comprimento > 0f) chapa = state.comprimento.toString()
+            if (state.largura > 0f) espessuraConcreto = state.largura.toString()
+            if (state.altura > 0f) carga = state.altura.toString()
+        }
+    }
     var resultado by remember { mutableStateOf("") }
     var erro by remember { mutableStateOf("") }
 
@@ -92,6 +108,14 @@ fun LajeScreen(onBack: () -> Unit) {
                         "ATENÇÃO: Carga excede o limite da chapa ($cargaLimite kgf/m²)! Escolha chapa superior ou reduza a carga."
                     }
                     resultado = "Chapa: $chapaId\nEspessura: $espConcreto cm\nCarga: $cargaTotal kgf/m²\n\n$situacao\n\n(Consulte a tabela do fabricante para limites detalhados de vão e carga admissível.)"
+                    // Salvar dados no DataStore
+                    scope.launch {
+                        dataStore.salvarLaje(
+                            comprimento = chapa.toFloatOrNull() ?: 0f,
+                            largura = espessuraConcreto.toFloatOrNull() ?: 0f,
+                            altura = carga.toFloatOrNull() ?: 0f
+                        )
+                    }
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
