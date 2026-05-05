@@ -24,7 +24,14 @@ class NavigationTest {
                 onNavigateToAISettings = { telaAtual = "ai" },
                 onNavigateToSobre = { telaAtual = "sobre" },
                 onNavigateToGauge = { telaAtual = "gauge" },
-                onNavigateToConfiguracoes = { telaAtual = "config" }
+                onNavigateToConfiguracoes = { telaAtual = "config" },
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         // Simula navegação para Perfis
@@ -39,7 +46,14 @@ class NavigationTest {
                 onNavigateToAISettings = { telaAtual = "ai" },
                 onNavigateToSobre = { telaAtual = "sobre" },
                 onNavigateToGauge = { telaAtual = "gauge" },
-                onNavigateToConfiguracoes = { telaAtual = "config" }
+                onNavigateToConfiguracoes = { telaAtual = "config" },
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Materiais").performClick()
@@ -53,7 +67,14 @@ class NavigationTest {
                 onNavigateToAISettings = { telaAtual = "ai" },
                 onNavigateToSobre = { telaAtual = "sobre" },
                 onNavigateToGauge = { telaAtual = "gauge" },
-                onNavigateToConfiguracoes = { telaAtual = "config" }
+                onNavigateToConfiguracoes = { telaAtual = "config" },
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Dashboard").performClick()

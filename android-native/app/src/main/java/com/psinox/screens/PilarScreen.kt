@@ -106,7 +106,6 @@ fun PilarScreen(onBack: () -> Unit) {
                     (0.877 * Math.PI * Math.PI * E) / (slenderness * slenderness)
                 }
                 val allowableStress_MPa = fcr_MPa / 1.67
-                val maxLoad_N = allowableStress_MPa * area_mm2
                 val actingStress_MPa = P_N / area_mm2
                 val utilizacao = (actingStress_MPa / allowableStress_MPa) * 100
                 resultado = "Perfil: ${perfilSelecionado.nome}\nTipo de aço: $tipoAco\nAltura: $alturaM m\nCarga: $cargaKgf kgf\nÁrea: %.2f cm²\n\nTensão atuante: %.2f MPa\nTensão admissível: %.2f MPa\nUtilização: %.1f%%".format(area_cm2, actingStress_MPa, allowableStress_MPa, utilizacao)

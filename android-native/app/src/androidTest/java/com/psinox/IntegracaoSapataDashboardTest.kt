@@ -24,7 +24,14 @@ class IntegracaoSapataDashboardTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         // Home → Perfis
@@ -45,7 +52,14 @@ class IntegracaoSapataDashboardTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Dashboard").performClick()

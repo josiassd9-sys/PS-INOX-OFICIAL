@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Composable
 fun GeometriaScreen(onBack: () -> Unit) {
     val context = LocalContext.current
     val dataStore = remember { GeometriaDataStore(context) }

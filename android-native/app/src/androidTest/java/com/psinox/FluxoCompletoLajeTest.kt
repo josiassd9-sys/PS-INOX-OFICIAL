@@ -24,7 +24,14 @@ class FluxoCompletoLajeTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         // Home → Perfis

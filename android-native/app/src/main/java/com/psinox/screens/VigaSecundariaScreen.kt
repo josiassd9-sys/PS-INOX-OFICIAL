@@ -16,9 +16,6 @@ import com.psinox.data.E_ACO_MPA
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-
-@Composable
-@Composable
 fun VigaSecundariaScreen(onBack: () -> Unit) {
     val context = LocalContext.current
     val dataStore = remember { VigaSecundariaDataStore(context) }

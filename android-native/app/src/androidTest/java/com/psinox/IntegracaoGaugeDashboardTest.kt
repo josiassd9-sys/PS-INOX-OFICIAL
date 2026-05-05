@@ -24,7 +24,14 @@ class IntegracaoGaugeDashboardTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         // Home → Gauge
@@ -42,7 +49,14 @@ class IntegracaoGaugeDashboardTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Dashboard").performClick()

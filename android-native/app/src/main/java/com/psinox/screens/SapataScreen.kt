@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Composable
 fun SapataScreen(onBack: () -> Unit) {
     val context = LocalContext.current
     val dataStore = remember { SapataDataStore(context) }

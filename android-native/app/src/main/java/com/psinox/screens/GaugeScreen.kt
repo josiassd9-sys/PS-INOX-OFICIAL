@@ -16,7 +16,6 @@ import com.psinox.data.gaugeInfo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Composable
 fun GaugeScreen(onBack: () -> Unit) {
     val context = LocalContext.current
     val dataStore = remember { GaugeDataStore(context) }

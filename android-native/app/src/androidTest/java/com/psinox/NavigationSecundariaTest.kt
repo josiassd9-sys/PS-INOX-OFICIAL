@@ -24,7 +24,14 @@ class NavigationSecundariaTest {
                 onNavigateToAISettings = { telaAtual = "ai" },
                 onNavigateToSobre = { telaAtual = "sobre" },
                 onNavigateToGauge = { telaAtual = "gauge" },
-                onNavigateToConfiguracoes = { telaAtual = "config" }
+                onNavigateToConfiguracoes = { telaAtual = "config" },
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         // Simula navegação para AISettings
@@ -39,7 +46,14 @@ class NavigationSecundariaTest {
                 onNavigateToAISettings = { telaAtual = "ai" },
                 onNavigateToSobre = { telaAtual = "sobre" },
                 onNavigateToGauge = { telaAtual = "gauge" },
-                onNavigateToConfiguracoes = { telaAtual = "config" }
+                onNavigateToConfiguracoes = { telaAtual = "config" },
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Sobre o App").performClick()
@@ -53,7 +67,14 @@ class NavigationSecundariaTest {
                 onNavigateToAISettings = { telaAtual = "ai" },
                 onNavigateToSobre = { telaAtual = "sobre" },
                 onNavigateToGauge = { telaAtual = "gauge" },
-                onNavigateToConfiguracoes = { telaAtual = "config" }
+                onNavigateToConfiguracoes = { telaAtual = "config" },
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Seleção de Gauge/Espessura").performClick()
@@ -67,7 +88,14 @@ class NavigationSecundariaTest {
                 onNavigateToAISettings = { telaAtual = "ai" },
                 onNavigateToSobre = { telaAtual = "sobre" },
                 onNavigateToGauge = { telaAtual = "gauge" },
-                onNavigateToConfiguracoes = { telaAtual = "config" }
+                onNavigateToConfiguracoes = { telaAtual = "config" },
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Configurações").performClick()

@@ -23,7 +23,14 @@ class FluxoAuxiliaresTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         // Materiais
@@ -38,7 +45,14 @@ class FluxoAuxiliaresTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Dashboard").performClick()
@@ -52,7 +66,14 @@ class FluxoAuxiliaresTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Configurações").performClick()
@@ -66,7 +87,14 @@ class FluxoAuxiliaresTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Sobre o App").performClick()
@@ -80,7 +108,14 @@ class FluxoAuxiliaresTest {
                 onNavigateToAISettings = {},
                 onNavigateToSobre = {},
                 onNavigateToGauge = {},
-                onNavigateToConfiguracoes = {}
+                onNavigateToConfiguracoes = {},
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         composeTestRule.onNodeWithText("Configurações de IA").performClick()

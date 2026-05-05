@@ -24,7 +24,14 @@ class NavigationEncadeadaTest {
                 onNavigateToAISettings = { telaAtual = "ai" },
                 onNavigateToSobre = { telaAtual = "sobre" },
                 onNavigateToGauge = { telaAtual = "gauge" },
-                onNavigateToConfiguracoes = { telaAtual = "config" }
+                onNavigateToConfiguracoes = { telaAtual = "config" },
+                onNavigateToTubosODSchedule = {},
+                onNavigateToMetalons = {},
+                onNavigateToChapas = {},
+                onNavigateToListaMateriais = {},
+                onNavigateToTabelaSucata = {},
+                onNavigateToListaSucatas = {},
+                onNavigateToConfiguracoesFerramentas = {}
             )
         }
         // Home → Perfis

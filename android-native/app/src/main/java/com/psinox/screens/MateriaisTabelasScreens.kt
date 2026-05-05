@@ -10,9 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.psinox.data.tubosODData
-import com.psinox.data.metalonData
+import com.psinox.data.metalonsData
 import com.psinox.data.chapasData
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TubosODScheduleScreen(onBack: () -> Unit) {
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
@@ -39,6 +40,7 @@ fun TubosODScheduleScreen(onBack: () -> Unit) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MetalonsScreen(onBack: () -> Unit) {
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
@@ -65,6 +67,7 @@ fun MetalonsScreen(onBack: () -> Unit) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChapasScreen(onBack: () -> Unit) {
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
